@@ -1,19 +1,33 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Upload Gambar ke Telegra.ph</title>
-  </head>
-  <body>
-    <form method="post" action="https://telegra.ph/upload">
-      <input type="file" name="file" />
-      <br />
-      <input type="submit" value="Upload" />
-    </form>
-    <br />
-    <p>
-      Setelah upload selesai, salin URL gambar dan tempelkan di bawah ini:
-    </p>
-    <input type="text" id="image-url" />
-    <br />
-    <button onclick="window.location.href=document.getElementById('image-url').value;">Buka Gambar</button>
-  </body>
+<head>
+	<title>Upload Gambar ke Telegra.ph</title>
+</head>
+<body>
+	<h1>Upload Gambar ke Telegra.ph</h1>
+	<form>
+		<label for="file">Pilih gambar:</label>
+		<input type="file" id="file" name="file"><br><br>
+		<button type="button" onclick="upload()">Upload</button>
+	</form>
+	<script>
+		function upload() {
+			var file = document.getElementById("file").files[0];
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://telegra.ph/upload", true);
+			var formData = new FormData();
+			formData.append("file", file);
+			xhr.send(formData);
+			xhr.onload = function() {
+				if (xhr.status == 200) {
+					var response = JSON.parse(xhr.responseText);
+					var imageUrl = "https://telegra.ph" + response[0].src;
+					window.location.href = imageUrl;
+				} else {
+					alert("Gagal mengunggah gambar");
+				}
+			}
+		}
+	</script>
+</body>
 </html>
