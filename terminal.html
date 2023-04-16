@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Command Executor</title>
-  </head>
-  <body>
-    <form id="command-form">
-      <label for="command-input">Enter Command:</label>
-      <input type="text" id="command-input" name="command">
-      <button type="submit">Execute</button>
-    </form>
-    <div id="output-container"></div>
-    <script>
-      const form = document.getElementById('command-form');
-      const outputContainer = document.getElementById('output-container');
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const response = await fetch('/execute', {
-          method: 'POST',
-          body: formData
-        });
-        const output = await response.text();
-        outputContainer.innerText = output;
-      });
-    </script>
-  </body>
+<head>
+	<title>Contoh Kode HTML dan JavaScript untuk Memanggil API</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#submit").click(function(){
+				var command = $("#command").val();
+				$.ajax({
+					type: "POST",
+					url: "https://wigglyausterecell.ikyystore3.repl.co/execute",
+					data: {command: command},
+					success: function(response){
+						$("#output").html(response);
+					},
+					error: function(xhr, status, error){
+						alert("Terjadi kesalahan: " + error);
+					}
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<h1>Contoh Kode HTML dan JavaScript untuk Memanggil API</h1>
+	<label for="command">Masukkan perintah:</label>
+	<input type="text" id="command" name="command">
+	<button type="button" id="submit">Eksekusi</button>
+	<div id="output"></div>
+</body>
 </html>
