@@ -1,4 +1,52 @@
-<form action="https://telegra.ph/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="file">
-  <input type="submit" value="Upload">
-</form>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Upload Gambar ke Telegra.ph</title>
+	<style>
+		body {
+			font-family: sans-serif;
+		}
+		input[type="file"] {
+			display: none;
+		}
+		#preview {
+			max-width: 400px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Upload Gambar ke Telegra.ph</h1>
+	<form id="upload-form">
+		<input type="file" id="file-input">
+		<button type="button" id="upload-button">Upload</button>
+	</form>
+	<div id="preview"></div>
+	<script>
+		document.getElementById("upload-button").addEventListener("click", function() {
+			var fileInput = document.getElementById("file-input");
+			var file = fileInput.files[0];
+			var formData = new FormData();
+			formData.append("file", file);
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "https://telegra.ph/upload", true);
+			xhr.onload = function() {
+				if (xhr.status === 200) {
+					var response = JSON.parse(xhr.responseText);
+					var imageUrl = "https://telegra.ph" + response[0].src;
+					var preview = document.getElementById("preview");
+					var img = document.createElement("img");
+					img.src = imageUrl;
+					preview.appendChild(img);
+					var link = document.createElement("a");
+					link.href = imageUrl;
+					link.target = "_blank";
+					link.textContent = "Lihat Gambar";
+					preview.appendChild(link);
+				}
+			};
+			xhr.send(formData);
+		});
+	</script>
+</body>
+</html>
