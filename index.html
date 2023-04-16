@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Halaman Beranda</title>
-	<link rel="stylesheet" href="Css/index.css"
+	<title>Web Viewer Full Screen</title>
+	<style>
+		/* Style untuk membuat viewer tampilan penuh */
+		body, html {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+		}
+		iframe {
+			position: absolute;
+			left:0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			border: 0;
+			height: 100%;
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
-<nav>
-  <ul>
-    <li><a href="beranda.html">Beranda</a></li>
-    <li><a href="tentang.html">Tentang Kami</a></li>
-    <li><a href="layanan.html">layanan</a></li>
-    <li><a href="kontak.html">Kontak</a></li>
-  </ul>
-</nav>
-
-	<h1>Selamat Datang di Azzbot MD!</h1>
-	<p>Azzbot MD adalah bot WhatsApp yang dapat melakukan konversi gambar ke sticker dan melakukan download file.</p>
-	<h2>Cara Menggunakan Azzbot MD:</h2>
-	<ol>
-		<li>Tambahkan nomor 6283865324123 ke daftar kontak WhatsApp kamu.</li>
-		<li>Buka WhatsApp dan kirim pesan ".menu" ke nomor tersebut.</li>
-		<li>Ikuti instruksi yang diberikan oleh bot untuk menggunakan fitur-fitur Azzbot MD.</li>
-	</ol>
-	<p>Terima kasih telah menggunakan Azzbot MD!</p>
-<script src="Js/index.js"></script>
+	<iframe src="https://www.example.com" frameborder="0" allowfullscreen></iframe>
 </body>
 </html>
