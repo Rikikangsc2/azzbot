@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Upload Gambar ke Telegra.ph</title>
-</head>
-<body>
-	<h1>Upload Gambar ke Telegra.ph</h1>
-	<form>
-		<label for="file">Pilih gambar:</label>
-		<input type="file" id="file" name="file"><br><br>
-		<button type="button" onclick="upload()">Upload</button>
-	</form>
-	<script>
-		function upload() {
-			var file = document.getElementById("file").files[0];
-			var xhr = new XMLHttpRequest();
-			xhr.open("POST", "https://telegra.ph/upload", true);
-			var formData = new FormData();
-			formData.append("file", file);
-			xhr.send(formData);
-			xhr.onload = function() {
-				if (xhr.status == 200) {
-					var response = JSON.parse(xhr.responseText);
-					var imageUrl = "https://telegra.ph" + response[0].src;
-					window.location.href = imageUrl;
-				} else {
-					alert("Gagal mengunggah gambar");
-				}
-			}
-		}
-	</script>
-</body>
-</html>
+<form method="POST" enctype="multipart/form-data" action="https://telegra.ph/upload">
+  <input type="file" name="file" id="file">
+  <input type="hidden" name="quick" value="true">
+  <input type="submit" value="Upload">
+</form>
+
+<script>
+  document.querySelector('form').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const form = event.target;
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: formData
+    });
+    const text = await response.text();
+    const url = text.match(/https:\/\/telegra\.ph\/file\/[a-zA-Z0-9]+/)[0];
+    const img = document.createElement('img');
+    img.src = url;
+    document.body.appendChild(img);
+  });
+</script>
