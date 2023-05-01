@@ -1,46 +1,35 @@
 
 
-<!-- HTML -->
-<form action="telegra.ph/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="media" />
-  <input type="submit" value="Upload Media" />
-</form>
-
-<!-- CSS -->
-form {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-input[type="file"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-
-input[type="submit"] {
-  padding: 10px;
-  background: #ccc;
-  color: #fff;
-  border: none;
-}
-
-<!-- JS -->
-$(document).ready(function() {
-  $('form').on('submit', function(e) {
-    e.preventDefault();
-    var formData = new FormData($(this)[0]);
-    $.ajax({
-      url: 'telegra.ph/upload',
-      type: 'POST',
-      data: formData,
-      success: function(data) {
-        alert('Media uploaded successfully!');
-      },
-      cache: false,
-      contentType: false,
-      processData: false
-    });
-  });
-});
+<html>
+  <head>
+    <title>Upload Media ke Telegra.ph</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#uploadForm").submit(function(e){
+          e.preventDefault();
+          var formData = new FormData($(this)[0]);
+          $.ajax({
+            url: 'https://telegra.ph/upload',
+            type: 'POST',
+            data: formData,
+            async: false,
+            success: function (data) {
+              alert(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+          });
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <form id="uploadForm" action="" method="post" enctype="multipart/form-data">
+      <input type="file" name="file" />
+      <input type="submit" value="Upload" />
+    </form>
+  </body>
+</html>
