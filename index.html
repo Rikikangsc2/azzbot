@@ -1,29 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
+
 <head>
-	<title>Azzbot</title>
-	<style>
-		iframe {
-			width: 100%;
-			height: 500px;
-			border: none;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jualan Limit Bot WhatsApp</title>
+  <style>
+    /* Gaya CSS */
+    body {
+      font-family: sans-serif;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #4b4b4b;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #4b4b4b;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      border-radius: 5px;
+      background-color: #5cb85c;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .cta-button:hover {
+      background-color: #4ca74c;
+      color: #fff;
+    }
+
+    .emoji {
+      font-size: 2rem;
+    }
+  </style>
 </head>
+
 <body>
-	<iframe id="web-viewer" src="https://backbowedstatistic.ikyystore3.repl.co"></iframe>
-
-	<script>
-		// Get the iframe element
-		var iframe = document.getElementById('web-viewer');
-
-		// Listen for a message from the parent window
-		window.addEventListener('message', function(event) {
-			if (event.data && event.data.type === 'url') {
-				// If a "url" message is received, set the iframe's source attribute to the new URL
-				iframe.src = event.data.url;
-			}
-		});
-	</script>
+  <div class="container">
+    <h1>Hei semuanya! <span class="emoji">🤗</span></h1>
+    <p>Kamu ingin limit bot WhatsApp-mu tidak terbatas? Kami punya solusinya! <span class="emoji">🤩</span></p>
+    <p>Kamu bisa memilih paket 5k/30 hari, 10k/60 hari, atau 20k/permanen. Pembayarannya pun bisa dilakukan via pulsa, dana, atau qris. <span class="emoji">💳</span></p>
+    <p>Mau? Chat aja ke <a href="https://wa.me/6283808217881" target="_blank">6283808217881</a> sekarang juga! <span class="emoji">😎</span></p>
+    <a href="https://wa.me/6283808217881" target="_blank" class="cta-button">Chat Sekarang</a>
+  </div>
 </body>
+
 </html>
