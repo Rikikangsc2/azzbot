@@ -1,26 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Limit Bot WhatsApp Terbatas</title>
-  <link rel="stylesheet" type="text/css" href="aku.css">
+	<title>List Harga</title>
+	<link rel="stylesheet" type="text/css" href="my.css">
 </head>
 <body>
-  <h1>Hei semuanya! 🤗</h1>
-  <p>Kamu ingin limit bot WhatsApp-mu tidak terbatas? Kami punya solusinya! 🤩</p>
-  <p>Kamu bisa memilih paket:</p>
-  <ul>
-    <li>5k/30 hari</li>
-    <li>10k/60 hari</li>
-    <li>20k/permanen</li>
-  </ul>
-  <p>Pembayaran dapat dilakukan melalui:</p>
-  <ul>
-    <li>pulsa 0838-0821-7881</li>
-    <li>dana 0838-0821-7881</li>
-    <li>qris <img src="qris.jpg" alt="QRIS"></li>
-  </ul>
-  <p>Kirim bukti pembayaran ke:</p>
-  <p>Chat aja 6283808217881 ! 😎</p>
+	<h2>List Harga</h2>
+	<form action="upload.php" method="post" enctype="multipart/form-data">
+		<input type="radio" name="harga" value="5k/bulan">5k / bulan<br>
+		<input type="radio" name="harga" value="10k/2bulan">10k / 2 bulan<br>
+		<input type="radio" name="harga" value="20k/permanent">20k / permanent<br>
+		<br>
+		<label for="foto">Upload bukti:</label>
+		<input type="file" id="foto" name="foto"><br><br>
+		<img src="https://telegra.ph/file/7d55b38c89a9420639574.jpg" alt="QRIS">
+		<input type="submit" name="submit" value="Submit">
+	</form>
 </body>
 </html>
