@@ -7,14 +7,26 @@
 <body>
 	<h2>List Harga</h2>
 	<form action="https://ikyyt.ikyystore3.repl.co/upload.php" method="post" enctype="multipart/form-data">
-		<input type="radio" name="harga" value="5k/bulan">5k / bulan<br>
-		<input type="radio" name="harga" value="10k/2bulan">10k / 2 bulan<br>
-		<input type="radio" name="harga" value="20k/permanent">20k / permanent<br>
+		<input type="radio" name="harga" value="5k/bulan" required>5k / bulan<br>
+		<input type="radio" name="harga" value="10k/2bulan" required>10k / 2 bulan<br>
+		<input type="radio" name="harga" value="20k/permanent" required>20k / permanent<br>
 		<br>
-		<label for="foto">Upload bukti:</label>
-		<input type="file" id="foto" name="foto"><br><br>
+		<label for="foto" required>Upload bukti:</label>
+		<input type="file" id="foto" name="foto" required><br><br>
 		<img src="https://telegra.ph/file/7d55b38c89a9420639574.jpg" alt="QRIS">
 		<input type="submit" name="submit" value="Submit">
 	</form>
+	<script>
+		// tambahkan kode JavaScript untuk menampilkan pesan peringatan jika harga atau gambar belum dipilih
+		var form = document.querySelector('form');
+		form.addEventListener('submit', function(event) {
+			var harga = document.querySelector('input[name="harga"]:checked');
+			var foto = document.getElementById('foto');
+			if (!harga || !foto.files[0]) {
+				event.preventDefault();
+				alert('Harap pilih harga dan unggah gambar sebelum mengirim formulir!');
+			}
+		});
+	</script>
 </body>
 </html>
