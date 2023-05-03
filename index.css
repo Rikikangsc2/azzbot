@@ -1,0 +1,54 @@
+/* Gaya untuk elemen container */
+.container {
+  background-color: #f6d365;
+  background-image: linear-gradient(to bottom, #f6d365, #fda085);
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Gaya untuk elemen heading */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px #f093fb;
+}
+
+/* Gaya untuk elemen paragraph */
+p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+/* Gaya untuk elemen unordered list */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Gaya untuk elemen list item */
+li {
+  margin-bottom: 10px;
+}
+
+/* Gaya untuk elemen bold */
+b {
+  color: #f093fb;
+}
+
+/* Gaya untuk elemen anchor */
+a {
+  color: #fff;
+  text-decoration: none;
+  background-color: #f093fb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Gaya untuk elemen anchor ketika hover */
+a:hover {
+  background-color: #ff6b6b;
+}
