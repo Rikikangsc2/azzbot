@@ -1,49 +1,79 @@
-/* mengatur tampilan judul halaman */
+/* Style untuk body */
+body {
+  background-color: #222;
+  color: #fff;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Style untuk container */
+.container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Style untuk judul halaman */
 h1 {
   font-size: 3em;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
+  color: #ffae42;
+  margin-top: 50px;
 }
 
-/* mengatur tampilan teks paragraf */
+/* Style untuk paragraf */
 p {
   font-size: 1.2em;
-  line-height: 1.5;
-  margin-bottom: 20px;
+  line-height: 1.5em;
+  margin: 20px 0;
 }
 
-/* mengatur tampilan daftar */
+/* Style untuk daftar */
 ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* mengatur tampilan item daftar */
-li {
-  font-size: 1.1em;
-  margin-bottom: 10px;
-}
-
-/* mengatur tampilan tautan */
+/* Style untuk link */
 a {
-  color: #333;
-  text-decoration: none;
-  border-bottom: 2px solid #333;
-}
-
-/* memberikan efek saat tautan dihover */
-a:hover {
-  background-color: #333;
   color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid #ffae42;
+  transition: all 0.3s ease;
 }
 
-/* mengatur tampilan kontainer */
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 40px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+a:hover {
+  color: #ffae42;
+  border-bottom: 1px solid #fff;
+}
+
+/* Style untuk menu */
+ul li {
+  display: inline-block;
+  margin: 0 20px;
+  font-size: 1.2em;
+}
+
+/* Style untuk fitur */
+li b {
+  color: #ffae42;
+}
+
+/* Style untuk fitur .ai */
+li:nth-child(1) b {
+  color: #1abc9c;
+}
+
+/* Style untuk fitur .sticker */
+li:nth-child(2) b {
+  color: #e74c3c;
+}
+
+/* Style untuk fitur .gc */
+li:nth-child(3) b {
+  color: #9b59b6;
+}
+
+/* Style untuk fitur .Prem */
+li:nth-child(4) b {
+  color: #3498db;
 }
