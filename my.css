@@ -1,64 +1,50 @@
-/* Style untuk body */
 body {
-  background-color: #ffd5cd;
-  color: #333;
-  font-family: sans-serif;
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
 }
 
-/* Style untuk h2 */
 h2 {
+  color: #FFD700;
   text-align: center;
-  color: #fc5185;
+  text-shadow: 2px 2px #000000;
 }
 
-/* Style untuk form */
 form {
-  max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
 }
 
-/* Style untuk label */
-label {
-  display: block;
-  margin-bottom: 10px;
-  color: #fc5185;
-}
-
-/* Style untuk input radio */
 input[type="radio"] {
-  margin-right: 5px;
+  margin: 10px;
 }
 
-/* Style untuk input file */
+label {
+  color: #FFD700;
+  display: block;
+  margin-top: 20px;
+}
+
 input[type="file"] {
-  display: block;
-  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
-/* Style untuk gambar QRIS */
-img {
-  display: block;
-  margin: 20px auto;
-  width: 200px;
-}
-
-/* Style untuk tombol submit */
 input[type="submit"] {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #fc5185;
-  color: #fff;
+  background-color: #FFD700;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  color: #1C1C1C;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
   transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #ff5a5f;
+  background-color: #FFFFFF;
+  color: #1C1C1C;
+  cursor: pointer;
 }
