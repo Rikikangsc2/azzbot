@@ -1,54 +1,128 @@
-/* Gaya untuk elemen container */
+/* CSS untuk tampilan container */
 .container {
-  background-color: #f6d365;
-  background-image: linear-gradient(to bottom, #f6d365, #fda085);
-  color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f5f5f5;
   padding: 20px;
-  border-radius: 10px;
 }
 
-/* Gaya untuk elemen heading */
+/* CSS untuk judul */
 h1 {
+  color: #009688;
   font-size: 36px;
+  font-weight: bold;
   text-align: center;
-  text-shadow: 2px 2px #f093fb;
 }
 
-/* Gaya untuk elemen paragraph */
+/* CSS untuk deskripsi */
 p {
+  color: #333;
   font-size: 18px;
   line-height: 1.5;
 }
 
-/* Gaya untuk elemen unordered list */
+/* CSS untuk daftar */
 ul {
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 
-/* Gaya untuk elemen list item */
 li {
+  color: #333;
+  font-size: 16px;
   margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
 }
 
-/* Gaya untuk elemen bold */
+/* CSS untuk teks tebal */
 b {
-  color: #f093fb;
+  color: #009688;
 }
 
-/* Gaya untuk elemen anchor */
+/* CSS untuk tautan */
 a {
   color: #fff;
+  background-color: #009688;
   text-decoration: none;
-  background-color: #f093fb;
-  padding: 10px 20px;
+  padding: 10px 15px;
   border-radius: 5px;
   display: inline-block;
-  margin-top: 10px;
+  margin-right: 10px;
 }
 
-/* Gaya untuk elemen anchor ketika hover */
 a:hover {
-  background-color: #ff6b6b;
+  background-color: #008080;
+}
+
+/* CSS untuk menu .ai */
+li:nth-child(1)::before {
+  content: ".ai";
+  background-color: #00bcd4;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+/* CSS untuk menu .sticker */
+li:nth-child(2)::before {
+  content: ".sticker";
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+/* CSS untuk menu .gc */
+li:nth-child(3)::before {
+  content: ".gc";
+  background-color: #ff9800;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 3px;
+}
+
+/* CSS untuk menu .Prem */
+li:nth-child(4)::before {
+  content: ".Prem";
+  background-color: #f44336;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: 3px;
 }
