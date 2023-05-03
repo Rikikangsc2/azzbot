@@ -1,47 +1,49 @@
-.container {
-  background-color: #F2F2F2;
-  border: 2px solid #4CAF50;
-  border-radius: 5px;
-  margin: 50px auto;
-  padding: 20px;
-  width: 80%;
-  text-align: center;
-}
-
+/* mengatur tampilan judul halaman */
 h1 {
-  color: #4CAF50;
   font-size: 3em;
+  color: #333;
+  text-align: center;
   text-transform: uppercase;
 }
 
+/* mengatur tampilan teks paragraf */
 p {
-  color: #333;
   font-size: 1.2em;
+  line-height: 1.5;
   margin-bottom: 20px;
 }
 
+/* mengatur tampilan daftar */
 ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
+/* mengatur tampilan item daftar */
 li {
-  margin-bottom: 10px;
   font-size: 1.1em;
+  margin-bottom: 10px;
 }
 
+/* mengatur tampilan tautan */
 a {
-  color: #fff;
-  background-color: #4CAF50;
-  border-radius: 5px;
-  padding: 10px 20px;
+  color: #333;
   text-decoration: none;
-  margin: 10px;
-  display: inline-block;
-  transition: all 0.3s ease;
+  border-bottom: 2px solid #333;
 }
 
+/* memberikan efek saat tautan dihover */
 a:hover {
   background-color: #333;
+  color: #fff;
+}
+
+/* mengatur tampilan kontainer */
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
