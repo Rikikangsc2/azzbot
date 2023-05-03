@@ -1,48 +1,64 @@
+/* Style untuk body */
 body {
-  background-color: #F8F8F8;
-  font-family: Arial, sans-serif;
+  background-color: #ffd5cd;
+  color: #333;
+  font-family: sans-serif;
 }
 
+/* Style untuk h2 */
 h2 {
-  color: #1E90FF;
+  text-align: center;
+  color: #fc5185;
 }
 
+/* Style untuk form */
 form {
   max-width: 500px;
   margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-input[type="radio"] {
-  margin-bottom: 10px;
-  color: #1E90FF;
-}
-
-label[for="foto"] {
-  margin-top: 20px;
+/* Style untuk label */
+label {
   display: block;
-  color: #1E90FF;
+  margin-bottom: 10px;
+  color: #fc5185;
 }
 
+/* Style untuk input radio */
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+/* Style untuk input file */
 input[type="file"] {
-  margin-bottom: 20px;
+  display: block;
+  margin-bottom: 10px;
 }
 
+/* Style untuk gambar QRIS */
 img {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
+  display: block;
+  margin: 20px auto;
+  width: 200px;
 }
 
+/* Style untuk tombol submit */
 input[type="submit"] {
-  background-color: #1E90FF;
-  color: #FFFFFF;
-  border: none;
+  display: block;
+  margin: 20px auto;
   padding: 10px 20px;
+  background-color: #fc5185;
+  color: #fff;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 20px;
+  transition: background-color 0.3s ease;
 }
 
 input[type="submit"]:hover {
-  background-color: #007FFF;
+  background-color: #ff5a5f;
 }
