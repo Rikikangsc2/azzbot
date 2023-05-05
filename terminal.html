@@ -1,62 +1,20 @@
-const express = require('express');
-const http = require('http');
-const socketio = require('socket.io');
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Global Chat Online Real Time</title>
+</head>
+<body>
+	<h1>Global Chat Online Real Time</h1>
 
-const app = express();
-const server = http.createServer(app);
-const io = socketio(server);
+	<div id="chat-window">
+		<ul id="messages"></ul>
+		<form id="message-form">
+			<input type="text" id="message-input" placeholder="Type your message...">
+			<button>Send</button>
+		</form>
+	</div>
 
-// Array untuk menyimpan daftar pengguna online
-let onlineUsers = [];
-
-// Fungsi untuk menambahkan pengguna baru ke daftar pengguna online
-function addUser(username, socketId) {
-  const user = {
-    username,
-    socketId
-  };
-  onlineUsers.push(user);
-  io.emit('onlineUsers', onlineUsers);
-}
-
-// Fungsi untuk menghapus pengguna dari daftar pengguna online
-function removeUser(socketId) {
-  onlineUsers = onlineUsers.filter(user => user.socketId !== socketId);
-  io.emit('onlineUsers', onlineUsers);
-}
-
-// Routing untuk halaman utama aplikasi
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
-// Event listener untuk koneksi baru
-io.on('connection', socket => {
-  console.log('User connected:', socket.id);
-
-  // Mengirim daftar pengguna online ke client saat terjadi koneksi baru
-  io.emit('onlineUsers', onlineUsers);
-
-  // Event listener untuk pengiriman pesan baru
-  socket.on('chatMessage', message => {
-    console.log('New message:', message);
-    io.emit('chatMessage', message);
-  });
-
-  // Event listener untuk saat user bergabung ke dalam chat
-  socket.on('joinChat', username => {
-    console.log('User joined:', username);
-    addUser(username, socket.id);
-  });
-
-  // Event listener untuk saat user keluar dari chat
-  socket.on('disconnect', () => {
-    console.log('User disconnected:', socket.id);
-    removeUser(socket.id);
-  });
-});
-
-// Menjalankan server pada port 3000
-server.listen(3000, () => {
-  console.log('Server started on port 3000');
-});
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="https://backthinsuperuser.ikyystore3.repl.co/script.js"></script>
+</body>
+</html>
