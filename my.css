@@ -1,62 +1,48 @@
 body {
-  background-color: #2e3192;
-  color: #fff;
-  font-family: sans-serif;
+	background-color: #FEDCD3;
+	color: #4E407C;
+	font-family: sans-serif;
 }
 
 h2 {
-  font-size: 36px;
-  text-align: center;
+	color: #FF6B6B;
 }
 
 form {
-  margin: 0 auto;
-  max-width: 600px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
+	background-color: #FEEAE6;
+	border: 2px solid #4E407C;
+	padding: 20px;
 }
 
-input[type="radio"],
-input[type="file"] {
-  margin: 10px 0;
-}
-
-label {
-  font-size: 18px;
+input[type="radio"] {
+	margin-right: 10px;
 }
 
 select {
-  margin: 10px 0;
-  padding: 5px;
-  font-size: 18px;
-  border-radius: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px solid #4E407C;
 }
 
-#danaPayment,
-#qrisPayment {
-  margin-top: 10px;
+#danaPayment, #qrisPayment {
+	margin-top: 10px;
 }
 
 #qrisPayment img {
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+	width: 200px;
 }
 
-#submitBtn {
-  background-color: #fff;
-  color: #2e3192;
-  border: 2px solid #fff;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
-  cursor: pointer;
-  margin-top: 20px;
+button {
+	background-color: #FF6B6B;
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	margin-top: 10px;
+	cursor: pointer;
 }
 
-#submitBtn:hover {
-  background-color: #2e3192;
-  color: #fff;
+button:hover {
+	background-color: #FEDCD3;
+	color: #4E407C;
 }
