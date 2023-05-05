@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>List Harga</title>
@@ -12,29 +11,30 @@
 		<input type="radio" name="harga" value="20k/permanent" required>20k / permanent<br>
 		<br>
 		<label>Pilih metode pembayaran:</label><br>
-		<select name="metode">
+		<select name="metode" id="metode" required>
+			<option value="">Pilih Metode Pembayaran</option>
 			<option value="dana">Dana</option>
 			<option value="qris">QRIS</option>
 		</select><br><br>
-		<label for="foto" required>Upload bukti:</label>
-		<input type="file" id="foto" name="foto" required><br><br>
 		<div id="dana" style="display: none;">
 			<p>Tampilkan nomor rekening Dana: 083808217881</p>
 		</div>
 		<div id="qris" style="display: none;">
 			<img src="https://telegra.ph/file/7d55b38c89a9420639574.jpg" alt="QRIS">
 		</div>
-		<input type="submit" name="submit" value="Submit">
+		<label for="foto">Upload bukti:</label>
+		<input type="file" id="foto" name="foto" required><br><br>
+		<input type="submit" name="submit" value="Lanjutkan">
 	</form>
 	<script>
 		// tambahkan kode JavaScript untuk menampilkan pesan peringatan jika harga, metode pembayaran, atau gambar belum dipilih
 		var form = document.querySelector('form');
 		form.addEventListener('submit', function(event) {
+			event.preventDefault();
 			var harga = document.querySelector('input[name="harga"]:checked');
 			var metode = document.querySelector('select[name="metode"]');
 			var foto = document.getElementById('foto');
-			if (!harga || !metode || !foto.files[0]) {
-				event.preventDefault();
+			if (!harga || !metode.value || !foto.files[0]) {
 				alert('Harap pilih harga, metode pembayaran, dan unggah gambar sebelum mengirim formulir!');
 			} else {
 				if (metode.value === 'dana') {
@@ -44,6 +44,15 @@
 					document.getElementById('qris').style.display = 'block';
 					document.getElementById('dana').style.display = 'none';
 				}
+				var tombolLanjut = document.createElement('button');
+				tombolLanjut.innerText = 'Lanjut Upload Bukti dan Pilih Nominal Pembayaran';
+				tombolLanjut.addEventListener('click', function() {
+					var nominal = harga.value;
+					var metodePembayaran = metode.value;
+					alert('Anda telah memilih ' + nominal + ' melalui ' + metodePembayaran);
+					// tambahkan kode untuk lanjut ke halaman upload bukti dan pilih nominal pembayaran
+				});
+				form.appendChild(tombolLanjut);
 			}
 		});
 	</script>
