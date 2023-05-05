@@ -1,23 +1,62 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Web Viewer Fullscreen Example</title>
-	<style>
-		#web-viewer {
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border: none;
-			margin: 0;
-			padding: 0;
-			overflow: hidden;
-			z-index: 9999;
-		}
-	</style>
-</head>
-<body>
-	<iframe id="web-viewer" src="https://ikyyt.ikyystore3.repl.co/chat.txt"></iframe>
-</body>
-</html>
+const express = require('express');
+const http = require('http');
+const socketio = require('socket.io');
+
+const app = express();
+const server = http.createServer(app);
+const io = socketio(server);
+
+// Array untuk menyimpan daftar pengguna online
+let onlineUsers = [];
+
+// Fungsi untuk menambahkan pengguna baru ke daftar pengguna online
+function addUser(username, socketId) {
+  const user = {
+    username,
+    socketId
+  };
+  onlineUsers.push(user);
+  io.emit('onlineUsers', onlineUsers);
+}
+
+// Fungsi untuk menghapus pengguna dari daftar pengguna online
+function removeUser(socketId) {
+  onlineUsers = onlineUsers.filter(user => user.socketId !== socketId);
+  io.emit('onlineUsers', onlineUsers);
+}
+
+// Routing untuk halaman utama aplikasi
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
+// Event listener untuk koneksi baru
+io.on('connection', socket => {
+  console.log('User connected:', socket.id);
+
+  // Mengirim daftar pengguna online ke client saat terjadi koneksi baru
+  io.emit('onlineUsers', onlineUsers);
+
+  // Event listener untuk pengiriman pesan baru
+  socket.on('chatMessage', message => {
+    console.log('New message:', message);
+    io.emit('chatMessage', message);
+  });
+
+  // Event listener untuk saat user bergabung ke dalam chat
+  socket.on('joinChat', username => {
+    console.log('User joined:', username);
+    addUser(username, socket.id);
+  });
+
+  // Event listener untuk saat user keluar dari chat
+  socket.on('disconnect', () => {
+    console.log('User disconnected:', socket.id);
+    removeUser(socket.id);
+  });
+});
+
+// Menjalankan server pada port 3000
+server.listen(3000, () => {
+  console.log('Server started on port 3000');
+});
