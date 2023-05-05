@@ -1,20 +1,47 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Global Chat Online Real Time</title>
-</head>
-<body>
-	<h1>Global Chat Online Real Time</h1>
+  <head>
+    <title>Global Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  </head>
+  <body>
+    <div id="users"></div>
+    <div id="chat"></div>
+    <form id="message-form">
+      <input type="text" id="message-input">
+      <button type="submit">Kirim</button>
+    </form>
 
-	<div id="chat-window">
-		<ul id="messages"></ul>
-		<form id="message-form">
-			<input type="text" id="message-input" placeholder="Type your message...">
-			<button>Send</button>
-		</form>
-	</div>
+    <script>
+      const socket = io('https://rudefondlevels.ikyystore3.repl.co/');
 
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="https://backthinsuperuser.ikyystore3.repl.co/script.js"></script>
-</body>
+      // Meng-handle event pengguna bergabung
+      socket.on('user-joined', (user) => {
+        const users = document.getElementById('users');
+        users.innerHTML += `<p>${user.username} bergabung ke dalam chat</p>`;
+      });
+
+      // Meng-handle event pengguna meninggalkan
+      socket.on('user-left', (user) => {
+        const users = document.getElementById('users');
+        users.innerHTML += `<p>${user.username} telah meninggalkan chat</p>`;
+      });
+
+      // Meng-handle event pesan baru
+      socket.on('new-message', (message) => {
+        const chat = document.getElementById('chat');
+        chat.innerHTML += `<p><strong>${message.username}:</strong> ${message.text}</p>`;
+      });
+
+      // Meng-handle submit form pesan
+      const form = document.getElementById('message-form');
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const input = document.getElementById('message-input');
+        const message = { username: 'Saya', text: input.value };
+        socket.emit('send-message', message);
+        input.value = '';
+      });
+    </script>
+  </body>
 </html>
