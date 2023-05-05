@@ -1,65 +1,62 @@
-/* Gaya untuk judul halaman */
-h2 {
-  color: #008080;
-  font-size: 32px;
-  text-align: center;
-  text-transform: uppercase;
-  margin-top: 50px;
-}
-
-/* Gaya untuk label dan tombol */
-label {
-  color: #333;
-  font-size: 18px;
-}
-
-button {
-  background-color: #008080;
+body {
+  background-color: #2e3192;
   color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  font-family: sans-serif;
+}
+
+h2 {
+  font-size: 36px;
+  text-align: center;
+}
+
+form {
+  margin: 0 auto;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+input[type="radio"],
+input[type="file"] {
+  margin: 10px 0;
+}
+
+label {
   font-size: 18px;
-  margin-top: 20px;
 }
 
-/* Gaya untuk pilihan harga */
-input[type="radio"] {
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #333;
-  cursor: pointer;
-}
-
-input[type="radio"]:checked + label {
-  color: #008080;
-  font-weight: bold;
-}
-
-/* Gaya untuk pilihan metode pembayaran */
 select {
-  font-size: 18px;
-  color: #333;
+  margin: 10px 0;
   padding: 5px;
-  margin-bottom: 20px;
+  font-size: 18px;
   border-radius: 5px;
-  border: 2px solid #008080;
-  cursor: pointer;
 }
 
-/* Gaya untuk gambar QRIS */
-img {
+#danaPayment,
+#qrisPayment {
+  margin-top: 10px;
+}
+
+#qrisPayment img {
   max-width: 100%;
   height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
-/* Gaya untuk pesan peringatan */
-.alert {
-  background-color: #f44336;
-  color: #fff;
-  padding: 10px;
-  margin-top: 20px;
+#submitBtn {
+  background-color: #fff;
+  color: #2e3192;
+  border: 2px solid #fff;
   border-radius: 5px;
+  padding: 10px;
   font-size: 18px;
-  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+#submitBtn:hover {
+  background-color: #2e3192;
+  color: #fff;
 }
