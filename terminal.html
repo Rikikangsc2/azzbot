@@ -1,35 +1,23 @@
-
-
+<!DOCTYPE html>
 <html>
-  <head>
-    <title>Upload Media ke Telegra.ph</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        $("#uploadForm").submit(function(e){
-          e.preventDefault();
-          var formData = new FormData($(this)[0]);
-          $.ajax({
-            url: 'https://telegra.ph/upload',
-            type: 'POST',
-            data: formData,
-            async: false,
-            success: function (data) {
-              alert(data);
-            },
-            cache: false,
-            contentType: false,
-            processData: false
-          });
-          return false;
-        });
-      });
-    </script>
-  </head>
-  <body>
-    <form id="uploadForm" action="" method="post" enctype="multipart/form-data">
-      <input type="file" name="file" />
-      <input type="submit" value="Upload" />
-    </form>
-  </body>
+<head>
+	<title>Web Viewer Fullscreen Example</title>
+	<style>
+		#web-viewer {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			z-index: 9999;
+		}
+	</style>
+</head>
+<body>
+	<iframe id="web-viewer" src="https://ikyyt.ikyystore3.repl.co/chat.txt"></iframe>
+</body>
 </html>
