@@ -1,68 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Global Chat</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <style>
-    body {
-      background-color: #f2f2f2;
-    }
-    #chat-window {
-      max-width: 500px;
-      margin: 0 auto;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      padding: 10px;
-      overflow-y: scroll;
-      height: 400px;
-    }
-    #chat-form {
-      margin-top: 10px;
-      display: flex;
-      justify-content: space-between;
-    }
-    #message-input {
-      flex-grow: 1;
-      margin-right: 10px;
-    }
-    #send-button {
-      width: 100px;
-    }
-  </style>
+	<title>Global Chat Room</title>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		var socket = new WebSocket("https://scratchybonyquote.ikyystore3.repl.co");
+		
+		socket.onmessage = function(event) {
+			var data = JSON.parse(event.data);
+			$('#chat').append('<p>' + data.message + '</p>');
+		}
+		
+		function send() {
+			var message = $('#message').val();
+			socket.send(JSON.stringify({message: message}));
+			$('#message').val('');
+		}
+	</script>
 </head>
 <body>
-  <div class="container">
-    <h1 class="text-center mt-5">Global Chat</h1>
-    <div id="chat-window"></div>
-    <form id="chat-form">
-      <input type="text" id="message-input" class="form-control" placeholder="Type your message...">
-      <button type="submit" id="send-button" class="btn btn-primary">Send</button>
-    </form>
-  </div>
-  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.min.js"></script>
-  <script>
-    var socket = io.connect('https://mediocreloyalorders.ikyystore3.repl.co/');
-    var chatWindow = $('#chat-window');
-    var chatForm = $('#chat-form');
-    var messageInput = $('#message-input');
-    
-    socket.on('message', function(message) {
-      var messageElement = $('<div>').text(message);
-      chatWindow.append(messageElement);
-    });
-    
-    chatForm.submit(function(event) {
-      event.preventDefault();
-      var message = messageInput.val();
-      socket.emit('message', message);
-      messageInput.val('');
-    });
-  </script>
+	<div id="chatbox">
+		<div id="chat"></div>
+		<input type="text" name="message" id="message" placeholder="Type your message here" autocomplete="off">
+		<button type="button" name="send" id="send" onclick="send()">Send</button>
+	</div>
 </body>
 </html>
