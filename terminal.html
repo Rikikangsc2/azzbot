@@ -1,92 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Contoh penggunaan API</title>
-	<script src="https://cdn.socket.io/socket.io-3.1.3.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Chat Online Real-Time</title>
 </head>
 <body>
-	<h1>Daftar Pengguna</h1>
-	<ul id="users"></ul>
-	<br>
-	<form id="add-user-form">
-		<label for="username">Nama Pengguna:</label>
-		<input type="text" id="username" name="username" required>
-		<button type="submit">Tambah Pengguna</button>
-	</form>
+  <h1>Global Chat Online Real-Time</h1>
+  
+  <div id="message-container">
+    <!-- All messages will be displayed here -->
+  </div>
 
-	<script>
-		const socket = io('https://rudefondlevels.ikyystore3.repl.co/');
-		const $users = $('#users');
-		const $addUserForm = $('#add-user-form');
+  <input type="text" id="message-input" placeholder="Type your message here..."/>
+  <button id="send-button">Send</button>
 
-		// Mengambil daftar pengguna dari server
-		function getUsers() {
-			$.get('/users', function(users) {
-				$users.empty();
-				users.forEach(function(user) {
-					$users.append('<li>' + user.username + ' [<a href="#" data-id="' + user.id + '" class="delete-user">hapus</a>]</li>');
-				});
-			});
-		}
+  <script src="https://cdn.socket.io/socket.io-3.1.3.min.js"></script>
+  <script>
+    const socket = io.connect('https://mediocreloyalorders.ikyystore3.repl.co/');
+    const messageContainer = document.getElementById('message-container');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
 
-		// Menambah pengguna ke server
-		function addUser(username) {
-			$.post('/users', { username }, function(user) {
-				$users.append('<li>' + user.username + ' [<a href="#" data-id="' + user.id + '" class="delete-user">hapus</a>]</li>');
-				socket.emit('user-joined', user.id);
-			});
-		}
+    // Handle incoming messages
+    socket.on('message', message => {
+      messageContainer.innerHTML += '<p>' + message + '</p>';
+    });
 
-		// Menghapus pengguna dari server
-		function deleteUser(id) {
-			$.ajax({
-				url: '/users/' + id,
-				type: 'DELETE',
-				success: function() {
-					$('li:has([data-id="' + id + '"])').remove();
-					socket.emit('user-left', id);
-				}
-			});
-		}
-
-		// Meng-handle form penambahan pengguna
-		$addUserForm.submit(function(event) {
-			event.preventDefault();
-			const username = $('#username').val();
-			addUser(username);
-			$('#username').val('');
-		});
-
-		// Meng-handle tombol hapus pengguna
-		$users.on('click', '.delete-user', function(event) {
-			event.preventDefault();
-			const id = $(this).data('id');
-			deleteUser(id);
-		});
-
-		// Meng-handle event pengguna bergabung
-		socket.on('user-joined', function(user) {
-			$users.append('<li>' + user.username + '</li>');
-		});
-
-		// Meng-handle event pengguna meninggalkan
-		socket.on('user-left', function(user) {
-			$('li:contains(' + user.username + ')').remove();
-		});
-
-		// Meng-handle event pesan baru
-		socket.on('new-message', function(message) {
-			$messages.append('<li>' + message.sender + ': ' + message.text + '</li>');
-		});
-
-		// Meng-handle koneksi socket terputus
-		socket.on('disconnect', function() {
-			alert('Anda telah terputus dari server');
-		});
-
-		// Mengambil daftar pengguna saat halaman dimuat
-		getUsers();
-	</script>
+    // Handle send button click
+    sendButton.addEventListener('click', () => {
+      const message = messageInput.value;
+      if (message) {
+        socket.emit('message', message);
+        messageInput.value = '';
+      }
+    });
+  </script>
 </body>
 </html>
