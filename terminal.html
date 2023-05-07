@@ -1,95 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Multi Auth Example</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-		}
+  <meta charset="UTF-8">
+  <title>Session Bot WhatsApp Aman</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
 
-		.container {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-		}
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-		.menu {
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			align-items: center;
-			margin-bottom: 20px;
-		}
+    .menu {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-		.menu a {
-			display: inline-block;
-			padding: 10px;
-			margin: 0 10px;
-			border: 1px solid #000;
-			border-radius: 5px;
-			background-color: #f1f1f1;
-			color: #000;
-			text-decoration: none;
-			cursor: pointer;
-			transition: background-color 0.3s;
-		}
+    .menu a {
+      display: inline-block;
+      padding: 10px;
+      margin: 0 10px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      background-color: #f1f1f1;
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-		.menu a:hover {
-			background-color: #000;
-			color: #fff;
-		}
+    .menu a:hover {
+      background-color: #000;
+      color: #fff;
+    }
 
-		.web-viewer {
-			display: none;
-			width: 100%;
-			height: calc(100vh - 50px);
-			border: none;
-			margin-top: 20px;
-		}
+    .web-viewer {
+      display: none;
+      width: 100%;
+      height: calc(100vh - 70px);
+      border: none;
+      margin-top: 20px;
+    }
 
-		.active {
-			display: block;
-		}
-	</style>
+    .active {
+      display: block;
+    }
+  </style>
 </head>
 <body>
-<h1>SESSION BOT WHATSAPP AMAN</h1>
-<Marquee><h2>QR tidak muncul dalam 5-10 detik silahkan klik tombol pilihan ulang</h2></marquee>
-	<div class="container">
-<h3>©author Ricky 6283808217881</h3>
-		<div class="menu">
-			<a href="#" class="single-session active">Single Session</a>
-			<a href="#" class="multi-auth">Multi Auth</a>
-<a href="https://s.id/sesi-tayo"><b>pilih ulang</b></a>
-	
-		</div>
-		<iframe class="web-viewer"></iframe>
-	</div>
-	<script>
-		const singleSessionLink = "https://session-md-by-zeeoneofc.ikyystore3.repl.co";
-		const multiAuthLink = "https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co";
+  <h1>Session Bot WhatsApp Aman</h1>
+  <marquee><h2>QR tidak muncul dalam 5-10 detik silahkan klik tombol pilihan ulang</h2></marquee>
+  <div class="container">
+    <div class="menu">
+      <a href="#" class="single-session active">Single Session</a>
+      <a href="#" class="multi-auth">Multi Auth</a>
+      <a href="https://s.id/sesi-tayo"><b>Pilih Ulang</b></a>
+    </div>
+    <iframe class="web-viewer"></iframe>
+  </div>
+  <footer>
+    <h3>©Author Ricky 6283808217881</h3>
+  </footer>
+  <script>
+    const singleSessionLink = "https://session-md-by-zeeoneofc.ikyystore3.repl.co";
+    const multiAuthLink = "https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co";
 
-		const singleSessionBtn = document.querySelector(".single-session");
-		const multiAuthBtn = document.querySelector(".multi-auth");
-		const webViewer = document.querySelector(".web-viewer");
+    const singleSessionBtn = document.querySelector(".single-session");
+    const multiAuthBtn = document.querySelector(".multi-auth");
+    const webViewer = document.querySelector(".web-viewer");
 
-		singleSessionBtn.addEventListener("click", () => {
-			singleSessionBtn.classList.add("active");
-			multiAuthBtn.classList.remove("active");
-			webViewer.src = singleSessionLink;
-			webViewer.classList.add("active");
-		});
+    singleSessionBtn.addEventListener("click", () => {
+      singleSessionBtn.classList.add("active");
+      multiAuthBtn.classList.remove("active");
+      webViewer.src = singleSessionLink;
+      webViewer.classList.add("active");
+    });
 
-		multiAuthBtn.addEventListener("click", () => {
-			multiAuthBtn.classList.add("active");
-			singleSessionBtn.classList.remove("active");
-			webViewer.src = multiAuthLink;
-			webViewer.classList.add("active");
-		});
-	</script>
+    multiAuthBtn.addEventListener("click", () => {
+      multiAuthBtn.classList.add("active");
+      singleSessionBtn.classList.remove("active");
+      webViewer.src = multiAuthLink;
+      webViewer.classList.add("active");
+    });
+  </script>
 </body>
 </html>
