@@ -1,52 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Tampilkan Website dengan Web Viewer Blok</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f2f2f2;
-        text-align: center;
-        padding-top: 50px;
-      }
-      
-      #webViewer {
-        width: 800px;
-        height: 600px;
-        margin: 0 auto;
-        position: relative;
-      }
-      
-      #webViewer::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-      }
-      
-      #webViewer iframe {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>Gak bisa di scan? Refresh web nya dan coba lagi</h1>
-    <div id="webViewer">
-      <iframe src="https://riki.ikyystore3.repl.co" frameborder="0"></iframe>
-    </div>
-    <script>
-      // prevent clicking on the web viewer
-      document.getElementById("webViewer").addEventListener("click", function(event) {
-        event.preventDefault();
-      });
-    </script>
-  </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Multi Auth Example</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.menu {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 20px;
+		}
+
+		.menu a {
+			display: inline-block;
+			padding: 10px;
+			margin: 0 10px;
+			border: 1px solid #000;
+			border-radius: 5px;
+			background-color: #f1f1f1;
+			color: #000;
+			text-decoration: none;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		.menu a:hover {
+			background-color: #000;
+			color: #fff;
+		}
+
+		.web-viewer {
+			display: none;
+			width: 100%;
+			height: calc(100vh - 50px);
+			border: none;
+			margin-top: 20px;
+		}
+
+		.active {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="menu">
+			<a href="#" class="single-session active">Single Session</a>
+			<a href="#" class="multi-auth">Multi Auth</a>
+		</div>
+		<iframe class="web-viewer"></iframe>
+	</div>
+
+	<script>
+		const singleSessionLink = "https://session-md-by-zeeoneofc.ikyystore3.repl.co";
+		const multiAuthLink = "https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co";
+
+		const singleSessionBtn = document.querySelector(".single-session");
+		const multiAuthBtn = document.querySelector(".multi-auth");
+		const webViewer = document.querySelector(".web-viewer");
+
+		singleSessionBtn.addEventListener("click", () => {
+			singleSessionBtn.classList.add("active");
+			multiAuthBtn.classList.remove("active");
+			webViewer.src = singleSessionLink;
+			webViewer.classList.add("active");
+		});
+
+		multiAuthBtn.addEventListener("click", () => {
+			multiAuthBtn.classList.add("active");
+			singleSessionBtn.classList.remove("active");
+			webViewer.src = multiAuthLink;
+			webViewer.classList.add("active");
+		});
+	</script>
+</body>
 </html>
