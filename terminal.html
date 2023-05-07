@@ -1,50 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Web Viewer</title>
+	<title>Scan QR Code</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<style>
 		body {
-			margin: 0;
-			padding: 0;
+			background-color: #f2f2f2;
 			font-family: Arial, sans-serif;
-			background-color: #f1f1f1;
-		}
-		.container {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			color: #333;
 			text-align: center;
 		}
-		.title {
-			font-size: 48px;
-			font-weight: bold;
-			margin-bottom: 20px;
+		
+		h1 {
+			font-size: 3rem;
+			color: #333;
+			margin-top: 2rem;
 		}
-		.message {
-			font-size: 24px;
-			margin-bottom: 40px;
+		
+		p {
+			font-size: 1.2rem;
+			color: #666;
+			margin-bottom: 2rem;
 		}
-		.refresh-btn {
-			display: inline-block;
-			padding: 10px 20px;
-			background-color: #333;
-			color: #fff;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		.refresh-btn:hover {
-			background-color: #555;
+		
+		#qrcode {
+			margin-top: 2rem;
 		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="title">Web Viewer</div>
-		<div class="message">Gak bisa di scan? Refresh web nya dan coba lagi</div>
-		<button class="refresh-btn" onclick="location.reload()">Refresh</button>
-	</div>
+	<h1>Gak bisa di scan?</h1>
+	<p>Refresh web nya dan coba lagi</p>
+	<div id="qrcode"></div>
+	<script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/qrcode.min.js"></script>
+	<script>
+		var qrcode = new QRCode("qrcode", {
+			text: "https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co/",
+			width: 256,
+			height: 256,
+			colorDark : "#000000",
+			colorLight : "#ffffff",
+			correctLevel : QRCode.CorrectLevel.H
+		});
+	</script>
 </body>
 </html>
