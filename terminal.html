@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Scan QR Code</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-		body {
-			background-color: #f2f2f2;
-			font-family: Arial, sans-serif;
-			text-align: center;
-		}
-		
-		h1 {
-			font-size: 3rem;
-			color: #333;
-			margin-top: 2rem;
-		}
-		
-		p {
-			font-size: 1.2rem;
-			color: #666;
-			margin-bottom: 2rem;
-		}
-		
-		#qrcode {
-			margin-top: 2rem;
-		}
-	</style>
-</head>
-<body>
-	<h1>Gak bisa di scan?</h1>
-	<p>Refresh web nya dan coba lagi</p>
-	<div id="qrcode"></div>
-	<script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/qrcode.min.js"></script>
-	<script>
-		var qrcode = new QRCode("qrcode", {
-			text: "https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co/",
-			width: 256,
-			height: 256,
-			colorDark : "#000000",
-			colorLight : "#ffffff",
-			correctLevel : QRCode.CorrectLevel.H
-		});
-	</script>
-</body>
+  <head>
+    <title>Tampilkan Website dengan Web Viewer Blok</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        text-align: center;
+        padding-top: 50px;
+      }
+      
+      #webViewer {
+        width: 800px;
+        height: 600px;
+        margin: 0 auto;
+        position: relative;
+      }
+      
+      #webViewer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      
+      #webViewer iframe {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Gak bisa di scan? Refresh web nya dan coba lagi</h1>
+    <div id="webViewer">
+      <iframe src="https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co/" frameborder="0"></iframe>
+    </div>
+    <script>
+      // prevent clicking on the web viewer
+      document.getElementById("webViewer").addEventListener("click", function(event) {
+        event.preventDefault();
+      });
+    </script>
+  </body>
 </html>
