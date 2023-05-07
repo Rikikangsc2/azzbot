@@ -1,70 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Web Viewer</title>
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      #top {
-        background-color: #f2f2f2;
-        padding: 10px;
-      }
-      #bottom {
-        height: calc(100vh - 40px);
-      }
-      #frame1, #frame2 {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      #frame1 {
-        display: block;
-      }
-      #frame2 {
-        display: none;
-      }
-      .button {
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 10px;
-        cursor: pointer;
-      }
-      .active {
-        background-color: #008CBA;
-      }
-    </style>
-  </head>
-  <body>
-    <div id="top">
-      <button class="button active" onclick="showFrame1()">https://replit.com/@zeeoneofc/LightgreenPossibleMinimalsystem?v=1#sesi.js</button>
-      <button class="button" onclick="showFrame2()">https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co/</button>
-    </div>
-    <div id="bottom">
-      <iframe id="frame1" src="https://replit.com/@zeeoneofc/LightgreenPossibleMinimalsystem?v=1#sesi.js"></iframe>
-      <iframe id="frame2" src="https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co/"></iframe>
-    </div>
-    <script>
-      function showFrame1() {
-        document.getElementById("frame1").style.display = "block";
-        document.getElementById("frame2").style.display = "none";
-        document.getElementsByClassName("active")[0].classList.remove("active");
-        document.getElementsByClassName("button")[0].classList.add("active");
-      }
-      function showFrame2() {
-        document.getElementById("frame1").style.display = "none";
-        document.getElementById("frame2").style.display = "block";
-        document.getElementsByClassName("active")[0].classList.remove("active");
-        document.getElementsByClassName("button")[1].classList.add("active");
-      }
-    </script>
-  </body>
+<head>
+	<title>Web Viewer</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+		}
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			color: #333;
+			text-align: center;
+		}
+		.title {
+			font-size: 48px;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+		.message {
+			font-size: 24px;
+			margin-bottom: 40px;
+		}
+		.refresh-btn {
+			display: inline-block;
+			padding: 10px 20px;
+			background-color: #333;
+			color: #fff;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.refresh-btn:hover {
+			background-color: #555;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="title">Web Viewer</div>
+		<div class="message">Gak bisa di scan? Refresh web nya dan coba lagi</div>
+		<button class="refresh-btn" onclick="location.reload()">Refresh</button>
+	</div>
+</body>
 </html>
