@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Welcome User!</title>
+	<title>Welcome User</title>
 	<style>
 		body {
-			background-color: #f2f2f2;
+			background-color: #f8f8f8;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			text-align: center;
+			margin: 0;
+			padding: 0;
 		}
 		h1 {
-			font-size: 48px;
+			margin-top: 50px;
+			font-size: 40px;
 			color: #333;
-			text-align: center;
-			margin-top: 100px;
 		}
 		button {
-			font-size: 24px;
-			padding: 10px 20px;
-			background-color: #333;
+			background-color: #008CBA;
 			color: #fff;
+			font-size: 20px;
+			padding: 10px 20px;
 			border: none;
 			border-radius: 5px;
 			cursor: pointer;
-			margin-top: 50px;
-			display: block;
-			margin: 0 auto;
+		}
+		button:hover {
+			background-color: #005F6B;
 		}
 	</style>
 </head>
 <body>
-	<h1>Welcome User!</h1>
-	<button id="btn">Lanjutkan</button>
-	<audio id="myAudio">
-		<source src="lagu.mp3" type="audio/mp3">
-	</audio>
+	<h1>Welcome User</h1>
+	<button id="playButton">Lanjut</button>
+	<audio id="music" src="lagu.mp3" loop></audio>
 	<script>
-		var audio = document.getElementById("myAudio");
-		var btn = document.getElementById("btn");
-		btn.onclick = function() {
-			audio.play();
-			window.location.href = "https://evergreenaccuratetwintext.ikyystore3.repl.co";
-		}
+		const playButton = document.getElementById('playButton');
+		const music = document.getElementById('music');
+		
+		playButton.addEventListener('click', () => {
+			music.play();
+			window.location.href = 'https://evergreenaccuratetwintext.ikyystore3.repl.co';
+		});
 	</script>
 </body>
 </html>
