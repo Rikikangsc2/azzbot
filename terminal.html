@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Global Chat Room</title>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<title>Contoh Web Viewer</title>
+	<style>
+		.container {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			width: 100%;
+		}
+		.top {
+			flex-grow: 1;
+			height: 50%;
+			overflow: auto;
+		}
+		.bottom {
+			flex-grow: 1;
+			height: 50%;
+			overflow: auto;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script>
-		var socket = new WebSocket("https://scratchybonyquote.ikyystore3.repl.co");
-		
-		socket.onmessage = function(event) {
-			var data = JSON.parse(event.data);
-			$('#chat').append('<p>' + data.message + '</p>');
-		}
-		
-		function send() {
-			var message = $('#message').val();
-			socket.send(JSON.stringify({message: message}));
-			$('#message').val('');
-		}
+		$(document).ready(function() {
+			setInterval(function() {
+				$('.top').load('http://riki.com');
+				$('.bottom').load('http://aku.com');
+			}, 5000); // set interval to 5 seconds
+		});
 	</script>
 </head>
 <body>
-	<div id="chatbox">
-		<div id="chat"></div>
-		<input type="text" name="message" id="message" placeholder="Type your message here" autocomplete="off">
-		<button type="button" name="send" id="send" onclick="send()">Send</button>
+	<div class="container">
+		<div class="top"></div>
+		<div class="bottom"></div>
 	</div>
 </body>
 </html>
