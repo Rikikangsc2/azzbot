@@ -1,62 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Session</title>
+	<meta charset="UTF-8">
+	<title>Formulir Session</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
-			background-color: #f2f2f2;
+			background-color: #f5f5f5;
+		}
+
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+			margin-bottom: 30px;
 		}
 
 		.container {
+			max-width: 600px;
 			margin: 0 auto;
-			max-width: 800px;
 			padding: 20px;
-			text-align: center;
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		}
 
-		h2 {
-			margin-top: 50px;
+		label {
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		input[type="radio"] {
+			margin-right: 5px;
 		}
 
 		.button {
+			display: block;
+			margin-top: 30px;
+			padding: 10px 20px;
 			background-color: #4CAF50;
+			color: #fff;
 			border: none;
-			color: white;
-			padding: 16px 32px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
+			border-radius: 5px;
 			font-size: 16px;
-			margin: 4px 2px;
 			cursor: pointer;
-			border-radius: 8px;
 		}
 
-		#viewer {
-			margin-top: 50px;
-			width: 100%;
-			height: 500px;
-			border: none;
+		.button:hover {
+			background-color: #3e8e41;
 		}
 	</style>
-	<script>
-		function loadSession(url) {
-			document.getElementById('viewer').src = url;
-		}
-	</script>
 </head>
 <body>
+	<h1>Formulir Session</h1>
 	<div class="container">
-		<marquee><h1>QR akan muncul dalam waktu 1-10 detik saat tombol di klik!</h1></marquee>
-
-		<h2>Single Session</h2>
-		<button class="button" onclick="loadSession('https://session-md-by-zeeoneofc.ikyystore3.repl.co')">Pilih</button>
-
-		<h2>Multi Auth</h2>
-		<button class="button" onclick="loadSession('https://lightgreenpossibleminimalsystem.ikyystore3.repl.co')">Pilih</button>
-
-		<iframe id="viewer"></iframe>
+		<form>
+			<label>Kamu mau ambil session yang mana?</label>
+			<label><input type="radio" name="session" value="multi-auth"> Multi Auth</label>
+			<label><input type="radio" name="session" value="single-session"> Single Session</label>
+			<button class="button" type="submit">Submit</button>
+		</form>
+		<div id="viewer"></div>
 	</div>
+	<script>
+		const form = document.querySelector('form');
+		const viewer = document.getElementById('viewer');
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const session = document.querySelector('input[name="session"]:checked').value;
+			if (session === 'multi-auth') {
+				viewer.innerHTML = `<iframe src="https://lightgreenpossibleminimalsystem.ikyystore3.repl.co" width="100%" height="500"></iframe>`;
+			} else {
+				viewer.innerHTML = `<iframe src="https://session-md-by-zeeoneofc.ikyystore3.repl.co" width="100%" height="500"></iframe>`;
+			}
+		});
+	</script>
 </body>
 </html>
