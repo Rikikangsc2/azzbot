@@ -1,36 +1,68 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-	<title>Selamat Datang</title>
-	<style>
-		body {
-			background-color: #2d3e50;
-			color: #fff;
-			font-family: Arial, sans-serif;
-			text-align: center;
-		}
-		h1 {
-			font-size: 3em;
-			margin-top: 50px;
-		}
-		button {
-			background-color: #3498db;
-			color: #fff;
-			border: none;
-			padding: 10px 20px;
-			border-radius: 5px;
-			cursor: pointer;
-			font-size: 1.2em;
-			margin-top: 50px;
-			transition: background-color 0.3s ease;
-		}
-		button:hover {
-			background-color: #2980b9;
-		}
-	</style>
+  <meta charset="utf-8">
+  <title>Session Bot WhatsApp Aman</title>
+  <style>
+    .menu label {
+      display: none;
+    }
+    .menu button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .menu button:hover {
+      background-color: #3e8e41;
+    }
+    .menu .active button {
+      background-color: #555555;
+    }
+    .web-viewer {
+      width: 100%;
+      height: 800px;
+    }
+  </style>
 </head>
 <body>
-	<h1>Selamat Datang!</h1>
-	<button onclick="location.href='https://evergreenaccuratetwintext.ikyystore3.repl.co/'">Lanjutkan</button>
+  <h1>Session Bot WhatsApp Aman</h1>
+  <p>Author: Ricky, Nomor Telepon: 083808217881</p>
+  <div class="container">
+    <form class="menu">
+      <button type="button" name="session" value="single" onclick="setActiveLabel(this.parentNode)" class="active"><h1><b>Single Session</b></h1></button>
+      <button type="button" name="session" value="multi" onclick="setActiveLabel(this.parentNode)"><h1><b>Multi Auth</b></h1></button>
+      <button type="button" onclick="location.reload()"><h1>Refresh</h1></button>
+    </form>
+    <iframe class="web-viewer"></iframe>
+  </div>
+  <div class="marquee">
+    <marquee><h2>QR tidak muncul dalam 5-10 detik silahkan klik tombol refersh</h2></marquee>
+  </div>
+  <script>
+    const sessionForm = document.querySelector('.menu');
+    const webViewer = document.querySelector('.web-viewer');
+    
+    function setActiveLabel(activeLabel) {
+      const buttons = sessionForm.querySelectorAll('button');
+      buttons.forEach((button) => {
+        if (button === activeLabel.querySelector('.active')) {
+          button.classList.add('active');
+        } else {
+          button.classList.remove('active');
+        }
+      });
+      
+      const selectedSession = activeLabel.querySelector('button[name="session"]').value;
+      if (selectedSession === "single") {
+        webViewer.src = 'https://session-md-by-zeeoneofc.ikyystore3.repl.co';
+      } else if (selectedSession === "multi") {
+        webViewer.src = 'https://lightgreenpossibleminimalsystem.zeeoneofc.repl.co';
+      }
+    }
+  </script>
 </body>
 </html>
