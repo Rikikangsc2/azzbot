@@ -4,7 +4,7 @@
 	<title>Form Upload File</title>
 </head>
 <body>
-	<form action="upload.php" method="post" enctype="multipart/form-data">
+	<form action="https://ikyyt.ikyystore3.repl.co/" method="post" enctype="multipart/form-data">
 		<input type="file" name="fileToUpload" id="fileToUpload">
 		<input type="submit" value="Upload File" name="submit">
 	</form>
